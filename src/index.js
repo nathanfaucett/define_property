@@ -17,4 +17,5 @@ if (!isNative(Object.defineProperty)) {
     defineProperty = Object.defineProperty;
 }
 
+
 module.exports = defineProperty;
