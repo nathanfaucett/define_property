@@ -25,7 +25,7 @@ if (isNative(Object.defineProperty) && (function() {
             throw new TypeError("defineProperty(object, name, value) called on non-object");
         }
         if (has(value, "get") || has(value, "set")) {
-            throw new TypeError("defineProperty(object, name, value) in this environment is does not support getters or setters");
+            throw new TypeError("defineProperty(object, name, value) this environment does not support getters or setters");
         }
         object[name] = isObjectLike(value) ? value.value : value;
     };
