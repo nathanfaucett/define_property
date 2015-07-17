@@ -1,15 +1,30 @@
-var isObjectLike = require("is_object_like"),
+var isObject = require("is_object"),
+    isFunction = require("is_function"),
+    isPrimitive = require("is_primitive"),
     isNative = require("is_native"),
     has = require("has");
 
 
-var defineProperty;
+var nativeDefineProperty = Object.defineProperty;
 
 
-if (isNative(Object.defineProperty) && (function() {
+module.exports = defineProperty;
+
+
+function defineProperty(object, name, descriptor) {
+    if (isPrimitive(descriptor) || isFunction(descriptor)) {
+        descriptor = {
+            value: descriptor
+        };
+    }
+    return nativeDefineProperty(object, name, descriptor);
+}
+
+
+if (!isNative(nativeDefineProperty) || !(function() {
         var object = {};
         try {
-            Object.defineProperty(object, "key", {
+            nativeDefineProperty(object, "key", {
                 value: "value"
             });
             if (has(object, "key") && object.key === "value") {
@@ -18,18 +33,13 @@ if (isNative(Object.defineProperty) && (function() {
         } catch (e) {}
         return false;
     }())) {
-    defineProperty = Object.defineProperty;
-} else {
-    defineProperty = function defineProperty(object, name, value) {
-        if (!isObjectLike(object)) {
-            throw new TypeError("defineProperty(object, name, value) called on non-object");
+    nativeDefineProperty = function defineProperty(object, name, descriptor) {
+        if (!isObject(object)) {
+            throw new TypeError("defineProperty(object, name, descriptor) called on non-object");
         }
-        if (has(value, "get") || has(value, "set")) {
-            throw new TypeError("defineProperty(object, name, value) this environment does not support getters or setters");
+        if (has(descriptor, "get") || has(descriptor, "set")) {
+            throw new TypeError("defineProperty(object, name, descriptor) this environment does not support getters or setters");
         }
-        object[name] = isObjectLike(value) ? value.value : value;
+        object[name] = descriptor.value;
     };
 }
-
-
-module.exports = defineProperty;
