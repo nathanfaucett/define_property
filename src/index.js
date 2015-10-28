@@ -23,15 +23,20 @@ function defineProperty(object, name, descriptor) {
 defineProperty.hasGettersSetters = true;
 
 if (!isNative(nativeDefineProperty) || !(function() {
-        var object = {};
+        var object = {},
+            value = {};
+
         try {
             nativeDefineProperty(object, "key", {
-                value: "value"
+                value: value
             });
-            if (has(object, "key") && object.key === "value") {
+            if (has(object, "key") && object.key === value) {
                 return true;
+            } else {
+                return false;
             }
         } catch (e) {}
+
         return false;
     }())) {
 
