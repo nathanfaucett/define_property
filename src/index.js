@@ -1,8 +1,8 @@
-var isObject = require("is_object"),
-    isFunction = require("is_function"),
-    isPrimitive = require("is_primitive"),
-    isNative = require("is_native"),
-    has = require("has");
+var isObject = require("@nathanfaucett/is_object"),
+    isFunction = require("@nathanfaucett/is_function"),
+    isPrimitive = require("@nathanfaucett/is_primitive"),
+    isNative = require("@nathanfaucett/is_native"),
+    has = require("@nathanfaucett/has");
 
 
 var nativeDefineProperty = Object.defineProperty;
