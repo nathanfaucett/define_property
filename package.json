@@ -1,6 +1,6 @@
 {
   "name": "@nathanfaucett/define_property",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "define_property for the browser and node.js",
   "repository": {
     "type": "git",
@@ -29,10 +29,10 @@
     "zuul": "^3.0.0"
   },
   "dependencies": {
-    "@nathanfaucett/has": "0.0.1",
-    "@nathanfaucett/is_function": "0.0.1",
+    "@nathanfaucett/has": "^0.0.1",
+    "@nathanfaucett/is_function": "^0.0.1",
     "@nathanfaucett/is_native": "^0.0.2",
-    "@nathanfaucett/is_object": "0.0.1",
-    "@nathanfaucett/is_primitive": "0.0.1"
+    "@nathanfaucett/is_object": "^0.0.1",
+    "@nathanfaucett/is_primitive": "^0.0.2"
   }
 }
