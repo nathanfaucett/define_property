@@ -29,7 +29,7 @@
     "zuul": "^3.0.0"
   },
   "dependencies": {
-    "@nathanfaucett/has": "^0.0.1",
+    "@nathanfaucett/has": "^0.0.2",
     "@nathanfaucett/is_function": "^0.0.1",
     "@nathanfaucett/is_native": "^0.0.2",
     "@nathanfaucett/is_object": "^0.0.1",
