@@ -1,6 +1,6 @@
 {
   "name": "@nathanfaucett/define_property",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "define_property for the browser and node.js",
   "repository": {
     "type": "git",
